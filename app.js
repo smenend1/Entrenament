@@ -104,6 +104,30 @@ const libraries = {
       description: 'Parelles en planxa o posició asseguda. Passades de pit, picades i laterals mantenint estabilitat. Cada sèrie acaba amb sortida ràpida a con.',
       coaching: 'Maluc estable i passades precises, no només força.',
       diagram: 'passing'
+    },
+    {
+      name: 'Salt ofensiu i estabilitat en caiguda',
+      minutes: 12,
+      material: 'Pilotes, 4 cons i línia de zona.',
+      description: 'Treball de salt vertical després de recepció, contacte lleuger i caiguda estable. Finalitza amb tir curt o palmeig controlat.',
+      coaching: 'Caure en dos peus, protegir genolls i controlar el tronc abans de córrer.',
+      diagram: 'rebound'
+    },
+    {
+      name: 'Circuit físic-tècnic individual',
+      minutes: 12,
+      material: 'Pilota per jugador/a, cons, escala de coordinació opcional.',
+      description: 'Postes curtes amb bot de protecció, canvi de mà, flexió controlada, arrencada i finalització. Cada posta combina força i tècnica.',
+      coaching: 'No sacrificar la tècnica per fer més repeticions.',
+      diagram: 'stations'
+    },
+    {
+      name: 'Tracció per guanyar espai sense falta',
+      minutes: 12,
+      material: 'Cons i petos.',
+      description: 'Parelles dins d’un quadrat. Objectiu: guanyar posició amb cos baix, braços legals i desplaçaments curts.',
+      coaching: 'Contacte segur, esquena forta i peus actius.',
+      diagram: 'postfight'
     }
   ],
   velocitat: [
@@ -162,6 +186,30 @@ const libraries = {
       description: 'A la senyal, receptor surt a l’espai, rep passada llarga i finalitza. El passador corre al rebot i canvien rols.',
       coaching: 'Sortir en el moment correcte i passar a l’avantatge.',
       diagram: 'longpass'
+    },
+    {
+      name: 'Bote de velocitat amb canvi de ritme',
+      minutes: 12,
+      material: 'Pilota per jugador/a i 8 cons.',
+      description: 'Recorregut amb arrencada, canvi de mà, frenada i acceleració. El jugador decideix si acaba amb entrada o parada i tir.',
+      coaching: 'Canvi real de velocitat després del gest tècnic.',
+      diagram: 'zigzag'
+    },
+    {
+      name: 'Contra transició amb superioritat',
+      minutes: 12,
+      material: 'Pilotes i petos.',
+      description: 'Sortida ràpida 2x1 o 3x2 després de rebot. L’atac ha d’ocupar carrils i decidir abans d’arribar a la zona.',
+      coaching: 'Mirada avançada, passada al jugador lliure i finalització simple.',
+      diagram: 'transition'
+    },
+    {
+      name: 'Arrencades i parades competitives',
+      minutes: 12,
+      material: 'Cons, pilotes i cronòmetre.',
+      description: 'Sèries de 6-8 metres amb sortida reactiva, parada en un o dos temps i acció tècnica final.',
+      coaching: 'Frenar baix i sortir sense passos de més.',
+      diagram: 'sprint'
     }
   ],
   defensa: [
@@ -220,6 +268,30 @@ const libraries = {
       description: 'Després d’un tir, dos jugadors van al rebot i dos baixen a protegir transició. Si defensa recupera, surt contraatac.',
       coaching: 'Responsabilitats clares: rebot, seguretat i comunicació.',
       diagram: 'balance'
+    },
+    {
+      name: 'Defensa zonal 2 contra 2',
+      minutes: 12,
+      material: 'Pilota, petos i 4 cons per marcar dos quadres.',
+      description: 'Dos atacants intenten progressar amb passades entre zones. Els dos defensors protegeixen espai sense creuar-se.',
+      coaching: 'Comunicar zona, orientar el bot i tancar línies de passada.',
+      diagram: 'shell'
+    },
+    {
+      name: 'Acció defensiva 2 contra 1',
+      minutes: 12,
+      material: 'Pilota i petos.',
+      description: 'En trios, un jugador ataca amb dos possibles suports. Els defensors han de temporitzar, ajudar i recuperar.',
+      coaching: 'No regalar la penetració central i decidir quan saltar a l’ajuda.',
+      diagram: 'help'
+    },
+    {
+      name: 'Defensa del tall i porta enrere',
+      minutes: 12,
+      material: 'Pilota, petos i mitja pista.',
+      description: 'L’atac busca tall horitzontal o diagonal; la defensa treballa negar línia de passada i recuperar si hi ha porta enrere.',
+      coaching: 'Veure pilota i jugador, cos entre atacant i cistella.',
+      diagram: 'offball'
     }
   ],
   '3x3': [
@@ -278,6 +350,30 @@ const libraries = {
       description: 'Un jugador bloqueja indirecte per alliberar un tirador. Després es juga continuïtat amb tall o reemplaçament.',
       coaching: 'Esperar el bloqueig, sortir enganxat i llegir defensa.',
       diagram: 'offball'
+    },
+    {
+      name: '3x3 dins-fora i tir exterior',
+      minutes: 12,
+      material: 'Pilota, petos i cons per marcar cantonades.',
+      description: 'Entrada de pilota a zona, sortida cap a exterior i tir o penetració segons ajuda defensiva.',
+      coaching: 'Passar fora quan arriba l’ajuda i recol·locar-se després del passada.',
+      diagram: 'corners'
+    },
+    {
+      name: '3x3 pick and roll lateral',
+      minutes: 12,
+      material: 'Pilota i petos.',
+      description: 'Bloqueig directe lateral amb tercer jugador en cantonada. Es decideix entre penetrar, continuació o passada exterior.',
+      coaching: 'Angle útil del bloqueig i lectura del defensor del costat feble.',
+      diagram: 'pick'
+    },
+    {
+      name: '3x3 possessió amb 10 passades',
+      minutes: 12,
+      material: 'Pilota, petos i mitja pista.',
+      description: 'L’atac suma punt si arriba a 10 passades amb mobilitat constant. La defensa puntua si roba o força mala recepció.',
+      coaching: 'Donar línies de passada, tallar després de passar i parlar en defensa.',
+      diagram: 'three'
     }
   ]
 };
@@ -357,17 +453,37 @@ function selectedTypes() {
   return [...document.querySelectorAll('input[name="exerciseType"]:checked')].map(i => i.value);
 }
 
-function pickCore(types) {
-  const durationPattern = [12, 12, 12, 12, 11, 11];
+function durationPatternFor(count) {
+  const coreMinutes = 70;
+  const base = Math.floor(coreMinutes / count);
+  let remainder = coreMinutes - base * count;
+  return Array.from({ length: count }, () => base).map(value => {
+    if (remainder > 0) {
+      remainder -= 1;
+      return value + 1;
+    }
+    return value;
+  });
+}
+
+function pickCore(types, count) {
+  const durationPattern = durationPatternFor(count);
   const pools = Object.fromEntries(types.map(type => [type, shuffle(libraries[type])]));
   const usedNames = new Set();
   const core = [];
+  const typeOrder = shuffle(types);
 
   for (let slot = 0; slot < durationPattern.length; slot++) {
-    const preferredTypes = shuffle(types);
-    const type = preferredTypes.find(t => pools[t].some(ex => !usedNames.has(ex.name))) || types[slot % types.length];
-    const exercise = pools[type].find(ex => !usedNames.has(ex.name));
-    if (!exercise) continue;
+    const orderedTypes = [...typeOrder.slice(slot % typeOrder.length), ...typeOrder.slice(0, slot % typeOrder.length)];
+    const type = orderedTypes.find(t => pools[t].some(ex => !usedNames.has(ex.name))) || types[slot % types.length];
+    let exercise = pools[type].find(ex => !usedNames.has(ex.name));
+
+    if (!exercise) {
+      const fallbackType = shuffle(Object.keys(libraries).filter(k => ['forca', 'velocitat', 'defensa', '3x3'].includes(k))).find(t => libraries[t].some(ex => !usedNames.has(ex.name)));
+      if (!fallbackType) continue;
+      exercise = shuffle(libraries[fallbackType]).find(ex => !usedNames.has(ex.name));
+    }
+
     usedNames.add(exercise.name);
     core.push({ ...exercise, type, minutes: durationPattern[slot] });
   }
@@ -379,9 +495,10 @@ function buildSession() {
   const age = document.getElementById('age').value;
   const level = document.getElementById('level').value;
   const types = selectedTypes().length ? selectedTypes() : ['defensa', 'velocitat'];
+  const count = Number(document.getElementById('exerciseCount').value || 6);
   const warmup = { ...shuffle(libraries.warmup)[0], age, level, minutes: 10 };
   const cooldown = { ...shuffle(libraries.coolDown)[0], age, level, minutes: 10 };
-  const core = pickCore(types).map(item => ({ ...item, age, level }));
+  const core = pickCore(types, count).map(item => ({ ...item, age, level }));
   return [warmup, ...core, cooldown].map((item, i) => ({ ...item, order: i + 1 }));
 }
 
@@ -399,6 +516,7 @@ function render() {
     <div><span>Edat</span><strong>${ageLabel}</strong></div>
     <div><span>Nivell</span><strong>${levelLabel}</strong></div>
     <div><span>Objectius</span><strong>${types.length ? types.join(', ') : 'Defensa, velocitat'}</strong></div>
+    <div><span>Exercicis</span><strong>${document.getElementById('exerciseCount').value}</strong></div>
     <div><span>Durada</span><strong>${total} min</strong></div>
   `;
 

@@ -40,6 +40,20 @@
           </select>
         </label>
 
+
+
+        <label>
+          Quantitat d’exercicis principals
+          <select id="exerciseCount" required>
+            <option value="3">3 exercicis més llargs</option>
+            <option value="4">4 exercicis</option>
+            <option value="5">5 exercicis</option>
+            <option value="6" selected>6 exercicis</option>
+            <option value="7">7 exercicis més curts</option>
+            <option value="8">8 exercicis molt dinàmics</option>
+          </select>
+        </label>
+
         <fieldset>
           <legend>Tipus d'exercicis</legend>
           <label class="check"><input type="checkbox" name="exerciseType" value="forca" checked /> Força</label>
@@ -50,7 +64,7 @@
 
         <button type="submit">Genera un entrenament nou</button>
       </form>
-      <p class="hint">Cada clic al botó crea una proposta diferent i evita repetir exercicis dins la mateixa sessió.</p>
+      <p class="hint">Escull quants exercicis vols al bloc principal. La PWA reparteix automàticament els 70 minuts centrals i no repeteix exercicis dins la sessió.</p>
     </section>
 
     <section class="panel output" aria-live="polite">
