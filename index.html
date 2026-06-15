@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ca">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Planificador d'entrenaments de bàsquet</title>
+  <meta name="theme-color" content="#f97316" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div>
+      <p class="eyebrow">PWA entrenador/a de bàsquet</p>
+      <h1>Planificador d'entrenaments</h1>
+      <p class="subtitle">Genera una sessió completa de 1 h 30 min segons edat, nivell i objectius.</p>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="panel controls" aria-labelledby="config-title">
+      <h2 id="config-title">Configura la sessió</h2>
+      <form id="trainingForm">
+        <label>
+          Edat del grup
+          <select id="age" required>
+            <option value="mini">Mini: 8-10 anys</option>
+            <option value="infantil">Infantil: 11-13 anys</option>
+            <option value="cadet">Cadet: 14-16 anys</option>
+            <option value="junior">Júnior/Sènior: +17 anys</option>
+          </select>
+        </label>
+
+        <label>
+          Nivell
+          <select id="level" required>
+            <option value="iniciacio">Iniciació</option>
+            <option value="mitja">Mitjà</option>
+            <option value="avancat">Avançat</option>
+          </select>
+        </label>
+
+        <fieldset>
+          <legend>Tipus d'exercicis</legend>
+          <label class="check"><input type="checkbox" name="exerciseType" value="forca" checked /> Força</label>
+          <label class="check"><input type="checkbox" name="exerciseType" value="velocitat" checked /> Velocitat</label>
+          <label class="check"><input type="checkbox" name="exerciseType" value="defensa" checked /> Defensa</label>
+          <label class="check"><input type="checkbox" name="exerciseType" value="3x3" checked /> 3x3</label>
+        </fieldset>
+
+        <button type="submit">Genera entrenament</button>
+      </form>
+      <p class="hint">Pensat per pista sencera o mitja pista. Pots imprimir la sessió o usar-la des del mòbil.</p>
+    </section>
+
+    <section class="panel output" aria-live="polite">
+      <div class="output-head">
+        <div>
+          <p class="eyebrow">Resultat</p>
+          <h2 id="sessionTitle">Sessió recomanada</h2>
+        </div>
+        <button id="printBtn" type="button">Imprimeix</button>
+      </div>
+      <div id="summary" class="summary"></div>
+      <div id="timeline" class="timeline"></div>
+    </section>
+  </main>
+
+  <template id="exerciseCardTemplate">
+    <article class="exercise-card">
+      <div class="exercise-main">
+        <div class="duration"></div>
+        <div>
+          <h3></h3>
+          <p class="description"></p>
+          <p class="material"></p>
+          <p class="coaching"></p>
+        </div>
+      </div>
+      <div class="court-wrap"></div>
+    </article>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html>
