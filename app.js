@@ -378,6 +378,197 @@ const libraries = {
   ]
 };
 
+// Exercicis afegits a la v4 a partir d'idees generals de guies de treball: transicio/velocitat,
+// tir i finalitzacio, defensa/recuperacio, passades/coordinacio, situacions variables,
+// i drills com Castillos, Tiro amb pressio, Winchister, 3/4 de pista, 2c2 amb handicap,
+// Palomero, Circus i Shell Drill.
+Object.assign(libraries, {
+  tir: [
+    {
+      name: 'Tir amb pressio des de diferents angles',
+      minutes: 12,
+      material: 'Pilotes, 2 cons, 2 defensors i petos.',
+      description: 'Un passador activa el tirador i un defensor surt a puntejar des d’un lateral. El tirador ha de rebre, quadrar-se i decidir si tira, fa una finta o ataca un bot.',
+      coaching: 'Mecanica estable, peus preparats abans de rebre i lectura del defensor.',
+      diagram: 'closeout'
+    },
+    {
+      name: 'Roda de finalitzacions amb decisio',
+      minutes: 12,
+      material: 'Pilotes, cons i dues files.',
+      description: 'Recepcio en carrera i finalitzacio segons senyal: entrada normal, ma feble, parada i tir curt o passada extra al company que arriba.',
+      coaching: 'Acabar equilibrat i decidir abans de fer passos de mes.',
+      diagram: 'finish'
+    },
+    {
+      name: 'Tir despres de passar i tallar',
+      minutes: 12,
+      material: 'Pilotes, cons i tres files.',
+      description: 'Passada, tall a cistella i reemplaçament. El jugador que rep decideix tir exterior, passada al tall o penetracio curta.',
+      coaching: 'Timing del tall, mans preparades i bona orientacio corporal.',
+      diagram: 'three'
+    },
+    {
+      name: 'Finalitzacio amb contacte controlat',
+      minutes: 12,
+      material: 'Pilotes, escut de contacte opcional i cons.',
+      description: 'Sortida des de 45 graus, contacte lleuger del defensor o ajudant i finalitzacio protegint pilota. Canvia costat i ma.',
+      coaching: 'Cos entre pilota i defensor, mirada al taulell i caiguda segura.',
+      diagram: 'finish'
+    },
+    {
+      name: 'Concurs de tir amb rebot ofensiu',
+      minutes: 12,
+      material: 'Pilotes i petos.',
+      description: 'Equips de 3: tir, rebot ofensiu i passada exterior. Puntua el tir anotat i el rebot capturat despres de tir fallat.',
+      coaching: 'No mirar el tir parat: carregar rebot i comunicar la sortida.',
+      diagram: 'rebound'
+    },
+    {
+      name: 'Tir en transicio amb trailer',
+      minutes: 12,
+      material: 'Pilotes i pista sencera.',
+      description: 'Tres carrils. El jugador central passa a banda i el trailer arriba per rebre a capçalera o continuar cap a aro.',
+      coaching: 'Carrils oberts, passada a l’avantatge i seleccio de tir.',
+      diagram: 'lanes3'
+    }
+  ],
+  passades: [
+    {
+      name: 'Passades i coordinacio per portes',
+      minutes: 12,
+      material: '10 cons, pilotes i petos.',
+      description: 'Parelles han de travessar portes amb passada de pit, picada o lateral. Cada porta superada exigeix canvi de ritme i comunicacio verbal.',
+      coaching: 'Passar al moviment, orientar cos i demanar la pilota amb objectiu clar.',
+      diagram: 'gates'
+    },
+    {
+      name: 'Rondo 4x2 amb sortida rapida',
+      minutes: 12,
+      material: 'Pilota, 4 cons i petos.',
+      description: 'Quatre atacants conserven contra dos defensors. Quan arriben a 8 passades, surten en contraatac curt cap a cistella.',
+      coaching: 'Angles de suport, passades tensades i no quedar-se darrere del defensor.',
+      diagram: 'shell'
+    },
+    {
+      name: 'Passada llarga i recepcio en carrera',
+      minutes: 12,
+      material: 'Pilotes, cons i pista sencera.',
+      description: 'El receptor arrenca a l’espai i rep passada llarga per finalitzar. El passador segueix per rebot i substitueix el receptor.',
+      coaching: 'Passar davant del company, no al cos. Rebre sense perdre velocitat.',
+      diagram: 'longpass'
+    },
+    {
+      name: 'Triangle de passades amb tall',
+      minutes: 12,
+      material: 'Pilota, 3 cons i grups de 3.',
+      description: 'Passada, tall i reemplaçament en triangle. A cada volta s’afegeix defensa passiva o activa segons nivell.',
+      coaching: 'Desmarcatge abans de rebre, mans visibles i tall profund.',
+      diagram: 'three'
+    },
+    {
+      name: 'Passada sota pressio i canvi d’orientacio',
+      minutes: 12,
+      material: 'Pilotes, petos i mitja pista.',
+      description: 'L’atac rep pressio a un costat i ha de trobar la inversio a costat feble amb una passada segura o una passada extra.',
+      coaching: 'No botar sense objectiu, protegir pilota i veure el costat feble.',
+      diagram: 'corners'
+    }
+  ],
+  bot: [
+    {
+      name: 'Castells de bot i proteccio',
+      minutes: 12,
+      material: '4 cons per quadrat, pilota per jugador/a.',
+      description: 'Dins d’un quadrat, atacant i defensor boten. L’atacant protegeix la pilota i el defensor intenta tocar-la amb la seva sense llançar-la. Canvi de rols cada minut.',
+      coaching: 'Cap amunt, cos baix, canvis de ma i no girar-se d’esquena.',
+      diagram: 'postfight'
+    },
+    {
+      name: 'Ziga-zaga de canvis de ma',
+      minutes: 12,
+      material: 'Pilota per jugador/a i 8 cons.',
+      description: 'Recorregut amb canvi per davant, entre cames, revers o esquena segons nivell. Acaba amb entrada o parada i tir.',
+      coaching: 'Canvi de ritme real despres del gest i pilota protegida.',
+      diagram: 'zigzag'
+    },
+    {
+      name: '1x1 a 3/4 de pista',
+      minutes: 12,
+      material: 'Pilotes i petos.',
+      description: 'L’atacant recull pilota rodada i ataca aro llunya. El defensor pressiona des del primer metre mantenint pit-pilota.',
+      coaching: 'Defensa activa, atac vertical i limit de bots si cal pujar dificultat.',
+      diagram: 'defense1'
+    },
+    {
+      name: 'Bot amb dues decisions finals',
+      minutes: 12,
+      material: 'Cons, pilotes i dos senyals de color.',
+      description: 'Despres del circuit de bot, el color indica si cal finalitzar, passar a cantonada o frenar per tir curt.',
+      coaching: 'Mirada alta abans d’arribar a la decisio.',
+      diagram: 'cones4'
+    },
+    {
+      name: 'Proteccio de pilota en espai reduit',
+      minutes: 12,
+      material: 'Cons, pilotes i cronometre.',
+      description: 'Parelles dins d’un carril. L’atacant ha de mantenir pilota viva i avançar; el defensor orienta cap a banda.',
+      coaching: 'Bot lluny de la defensa, espatlla protectora i canvis curts.',
+      diagram: 'defense1'
+    }
+  ],
+  situacions: [
+    {
+      name: '2x2 amb handicap i recuperacio',
+      minutes: 12,
+      material: 'Pilota, petos i mitja pista.',
+      description: 'Comença en 2x1. El jugador que tira o perd pilota toca linia de fons abans de recuperar i convertir-ho en 2x2.',
+      coaching: 'Aprofitar avantatge temporal i defensa amb fintas per guanyar temps.',
+      diagram: 'transition'
+    },
+    {
+      name: 'Palomero 3x2 continu',
+      minutes: 12,
+      material: 'Pilota, petos i pista sencera.',
+      description: 'Situacions constants de 3x2 amb un jugador que s’incorpora com a palomero. En perdre o tirar, canvi immediat de rol atac-defensa.',
+      coaching: 'Canvi de xip, balance defensiu i ocupacio rapida de carrils.',
+      diagram: 'lanes3'
+    },
+    {
+      name: 'Circus 3x3 comunicacio defensiva',
+      minutes: 12,
+      material: 'Pilota, petos i mitja pista.',
+      description: 'Atacants passen perimetralment mentre defenses ajusten. A la senyal, tots toquen pilota amb entrenador/a i tornen sense emparellar-se amb el mateix atacant.',
+      coaching: 'Comunicar, recuperar posicio i defensar jugador nou.',
+      diagram: 'three'
+    },
+    {
+      name: 'Winchister: 1x1 encadenat',
+      minutes: 12,
+      material: 'Pilotes, petos i 5 punts de sortida.',
+      description: 'Un defensor encadena diversos close-out i 1x1 curts. L’objectiu es frenar primer i segon bot sense falta.',
+      coaching: 'Resistencia mental, primera frenada i verticalitat defensiva.',
+      diagram: 'closeout'
+    },
+    {
+      name: '2c0, 2c1 i 2c2 progressiu',
+      minutes: 12,
+      material: 'Pilota, petos i cons.',
+      description: 'La mateixa accio evoluciona: primer sense defensa, despres amb un defensor i finalment 2x2 real. Serveix per ajustar lectures.',
+      coaching: 'Progressio clara: tecnica, lectura i competicio.',
+      diagram: 'pick'
+    },
+    {
+      name: 'Shell drill amb variants',
+      minutes: 12,
+      material: 'Pilota i petos.',
+      description: '4x4 en mitja pista. Cada passada obliga a ajustar posicio defensiva. Es poden afegir bots, ma a ma, talls o bloquejos indirectes.',
+      coaching: 'Pilota, ajuda, costat feble i comunicacio constant.',
+      diagram: 'shell'
+    }
+  ]
+});
+
 const ageLabels = {
   mini: 'Mini: 8-10 anys',
   infantil: 'Infantil: 11-13 anys',
@@ -479,7 +670,7 @@ function pickCore(types, count) {
     let exercise = pools[type].find(ex => !usedNames.has(ex.name));
 
     if (!exercise) {
-      const fallbackType = shuffle(Object.keys(libraries).filter(k => ['forca', 'velocitat', 'defensa', '3x3'].includes(k))).find(t => libraries[t].some(ex => !usedNames.has(ex.name)));
+      const fallbackType = shuffle(Object.keys(libraries).filter(k => !['warmup', 'coolDown'].includes(k))).find(t => libraries[t].some(ex => !usedNames.has(ex.name)));
       if (!fallbackType) continue;
       exercise = shuffle(libraries[fallbackType]).find(ex => !usedNames.has(ex.name));
     }
