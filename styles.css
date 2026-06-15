@@ -67,7 +67,8 @@ button {
   font-weight: 850;
   box-shadow: 0 10px 25px rgba(249, 115, 22, .25);
 }
-button:hover { background: var(--brand-dark); }
+button:hover { background: var(--brand-dark); transform: translateY(-1px); }
+button:active { transform: translateY(0); }
 #printBtn { width: auto; padding: .7rem 1rem; margin: 0; background: #111827; }
 .hint { color: var(--muted); font-size: .92rem; }
 .output-head { display: flex; justify-content: space-between; gap: 1rem; align-items: start; }
@@ -84,6 +85,7 @@ button:hover { background: var(--brand-dark); }
 }
 .summary strong { display: block; font-size: 1.3rem; }
 .timeline { display: grid; gap: 1rem; }
+.exercise-card:nth-child(2n) { background: #fffaf5; }
 .exercise-card {
   border: 1px solid var(--line);
   border-radius: 1.15rem;
