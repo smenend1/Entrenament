@@ -1090,7 +1090,7 @@ function buildSession() {
   return [warmup, ...core, cooldown].map((item, i) => ({ ...item, order: i + 1 }));
 }
 
-function render() {
+function render(options = {}) {
   const session = buildSession();
   const ageSelect = document.getElementById('age');
   const levelSelect = document.getElementById('level');
@@ -1127,12 +1127,18 @@ function render() {
     node.querySelector('.court-wrap').innerHTML = courtSvg(item.diagram);
     timeline.appendChild(node);
   });
+
+  if (options.focusOutput) {
+    const result = document.getElementById('result');
+    result.focus({ preventScroll: true });
+    result.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
 }
 
 document.getElementById('trainingForm').addEventListener('submit', event => {
   event.preventDefault();
   generation += 1;
-  render();
+  render({ focusOutput: true });
 });
 
 document.querySelectorAll('select, input[type="checkbox"]').forEach(el => el.addEventListener('change', () => {

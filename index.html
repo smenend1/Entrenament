@@ -4,11 +4,26 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Planificador d'entrenaments de bàsquet</title>
-  <meta name="theme-color" content="#f97316" />
+  <meta name="theme-color" content="#b94712" />
+  <meta name="description" content="PWA per planificar entrenaments de bàsquet de 90 minuts segons edat, nivell, objectius, categories pedagògiques i tipus d'exercicis." />
   <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="preload" href="styles.css" as="style" />
   <link rel="stylesheet" href="styles.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Planificador d'entrenaments de bàsquet",
+    "applicationCategory": "SportsApplication",
+    "operatingSystem": "Web",
+    "description": "PWA per generar sessions d'entrenament de bàsquet de 90 minuts segons edat, nivell, objectius i categories.",
+    "inLanguage": "ca"
+  }
+  </script>
 </head>
 <body>
+  <a class="skip-link" href="#result">Salta al resultat</a>
   <header class="app-header">
     <div>
       <p class="eyebrow">PWA entrenador/a de bàsquet</p>
@@ -132,12 +147,23 @@
           <label class="check"><input type="checkbox" name="exerciseType" value="situacions" /> Situacions variables</label>
         </fieldset>
 
-        <button type="submit">Genera un entrenament nou</button>
+        <fieldset>
+          <legend>Categories pedagògiques</legend>
+          <label class="check"><input type="checkbox" name="exerciseCategory" value="fisics" checked /> Físics</label>
+          <label class="check"><input type="checkbox" name="exerciseCategory" value="tecnics" checked /> Tècnics</label>
+          <label class="check"><input type="checkbox" name="exerciseCategory" value="tactics" checked /> Tàctics</label>
+          <label class="check"><input type="checkbox" name="exerciseCategory" value="globalitzats" checked /> Globalitzats</label>
+          <label class="check"><input type="checkbox" name="exerciseCategory" value="estrategics" /> Estratègics</label>
+          <label class="check"><input type="checkbox" name="exerciseCategory" value="psicologics" /> Psicològics</label>
+          <label class="check"><input type="checkbox" name="exerciseCategory" value="especifics" /> Específics</label>
+        </fieldset>
+
+        <button class="primary-action" type="submit">Genera un entrenament nou</button>
       </form>
       <p class="hint">Cada clic al botó crea una proposta diferent i evita repetir exercicis dins la mateixa sessió.</p>
     </section>
 
-    <section class="panel output" aria-live="polite">
+    <section id="result" class="panel output" aria-live="polite" aria-labelledby="sessionTitle" tabindex="-1">
       <div class="output-head">
         <div>
           <p class="eyebrow">Resultat</p>
@@ -166,6 +192,6 @@
     </article>
   </template>
 
-  <script src="app.js"></script>
+  <script src="app.js" defer></script>
 </body>
 </html>

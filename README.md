@@ -33,7 +33,7 @@ Això serveix per provar la interfície. Perquè la PWA funcioni plenament com a
 Si tens Python instal·lat:
 
 ```bash
-cd pwa_basket_v7
+cd pwa_basket_v8
 python3 -m http.server 8000
 ```
 
@@ -83,8 +83,20 @@ Si fas canvis en `app.js`, `styles.css` o `index.html`, actualitza també el nom
 Exemple:
 
 ```js
-const CACHE_NAME = 'basket-trainer-v8';
+const CACHE = 'basquet-pwa-v8';
 ```
+
+
+## Millores de la versió v8
+
+- Contrast reforçat al botó principal per millorar l'accessibilitat.
+- Metadescripció SEO afegida al document.
+- Dades estructurades JSON-LD de tipus `SoftwareApplication`.
+- JavaScript carregat amb `defer` i CSS pre-carregat.
+- Bloc de resultat amb `aria-live`, `tabindex` i focus automàtic després de generar una sessió.
+- Enllaç de salt al resultat per a navegació amb teclat.
+- Service worker actualitzat amb cache `basquet-pwa-v8` i estratègia cache + actualització de xarxa.
+- Preferència `prefers-reduced-motion` per reduir animacions si l'usuari ho té configurat.
 
 ## Limitacions actuals
 
