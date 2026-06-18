@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Planificador d'entrenaments de bàsquet</title>
-  <meta name="theme-color" content="#f97316" />
+  <meta name="theme-color" content="#b45309" />
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -63,6 +63,17 @@
           <label class="check"><input type="checkbox" name="exerciseType" value="passades" /> Passades i coordinació</label>
           <label class="check"><input type="checkbox" name="exerciseType" value="bot" /> Bot i 1x1</label>
           <label class="check"><input type="checkbox" name="exerciseType" value="situacions" /> Situacions variables</label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Categories pedagògiques</legend>
+          <label class="check"><input type="checkbox" name="exerciseCategory" value="fisics" checked /> Físics</label>
+          <label class="check"><input type="checkbox" name="exerciseCategory" value="tecnics" checked /> Tècnics</label>
+          <label class="check"><input type="checkbox" name="exerciseCategory" value="tactics" checked /> Tàctics</label>
+          <label class="check"><input type="checkbox" name="exerciseCategory" value="globalitzats" checked /> Globalitzats</label>
+          <label class="check"><input type="checkbox" name="exerciseCategory" value="estrategics" /> Estratègics</label>
+          <label class="check"><input type="checkbox" name="exerciseCategory" value="psicologics" /> Psicològics</label>
+          <label class="check"><input type="checkbox" name="exerciseCategory" value="especifics" /> Específics</label>
         </fieldset>
 
         <button type="submit">Genera un entrenament nou</button>
