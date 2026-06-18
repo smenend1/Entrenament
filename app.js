@@ -882,6 +882,149 @@ const categoryLabels = {
   especifics: 'Específics'
 };
 
+
+const objectiveLabels = {
+  qualsevol: 'Qualsevol objectiu compatible',
+  calentament: 'Calentament',
+  acondicionament: 'Acondicionament general',
+  velocitat: 'Velocitat',
+  coordinacio: 'Coordinació',
+  'forca-inferior': 'Força tren inferior',
+  'forca-superior': 'Força tren superior',
+  'resistencia-aerobica': 'Resistència aeròbica',
+  'resistencia-anaerobica': 'Resistència anaeròbica',
+  flexibilitat: 'Flexibilitat / recuperació',
+  circuits: 'Circuits',
+  concentracio: 'Concentració',
+  competitivitat: 'Competitivitat',
+  agressivitat: 'Agressivitat esportiva',
+  comunicacio: 'Comunicació / expressió',
+  memoria: 'Assimilació / memorització',
+  cohesio: 'Cohesió grupal',
+  creativitat: 'Creativitat',
+  ludic: 'Lúdic / recreatiu',
+  percepcio: 'Percepció',
+  'bot-proteccio': 'Bot: protecció',
+  'bot-velocitat': 'Bot: velocitat',
+  'bot-canvi-ma': 'Bot: canvi de mà',
+  'bot-canvi-ritme': 'Bot: canvi de ritme',
+  'pase-dos-mans': 'Passada dues mans',
+  'pase-una-ma': 'Passada una mà',
+  'recepcio-alta': 'Recepció alta',
+  'recepcio-baixa': 'Recepció baixa',
+  'tir-suspensio': 'Tir en suspensió',
+  'tir-bandeja': 'Entrada / safata',
+  'tir-ganxo': 'Tir de ganxo',
+  'fintes-tir': 'Fintes de tir',
+  'fintes-penetracio': 'Fintes de penetració',
+  'fintes-pase': 'Fintes de passada',
+  'defensa-exterior': 'Defensa pilota exterior',
+  'defensa-interior': 'Defensa pilota interior',
+  'posicio-defensiva': 'Posició bàsica defensiva',
+  'rebote-ofensiu': 'Rebot ofensiu',
+  'rebote-defensiu': 'Rebot defensiu',
+  'contra-primari': 'Contraatac primari',
+  'contra-secundari': 'Contraatac secundari',
+  transicio: 'Transició',
+  'balance-defensiu': 'Balanç defensiu',
+  'passar-tallar': 'Passar i tallar',
+  'passar-bloquejar': 'Passar i bloquejar',
+  'bloqueig-directe': 'Bloqueig directe',
+  'bloqueig-indirecte': 'Bloqueig indirecte',
+  'servei-fons': 'Servei de fons',
+  'servei-banda': 'Servei de banda',
+  'atac-14': 'Atac 1-4',
+  'atac-32': 'Atac 3-2',
+  'atac-caixa-u': 'Atac caixa i un'
+};
+
+const typeObjectives = {
+  forca: ['forca-inferior', 'forca-superior', 'acondicionament', 'circuits'],
+  velocitat: ['velocitat', 'coordinacio', 'resistencia-anaerobica', 'contra-primari', 'transicio'],
+  defensa: ['defensa-exterior', 'defensa-interior', 'posicio-defensiva', 'balance-defensiu', 'rebote-defensiu'],
+  '3x3': ['passar-tallar', 'passar-bloquejar', 'bloqueig-directe', 'competitivitat', 'creativitat'],
+  tir: ['tir-suspensio', 'tir-bandeja', 'tir-ganxo', 'fintes-tir'],
+  passades: ['pase-dos-mans', 'pase-una-ma', 'recepcio-alta', 'recepcio-baixa', 'comunicacio'],
+  bot: ['bot-proteccio', 'bot-velocitat', 'bot-canvi-ma', 'bot-canvi-ritme', 'fintes-penetracio'],
+  situacions: ['percepcio', 'memoria', 'cohesio', 'creativitat', 'competitivitat', 'servei-fons', 'servei-banda']
+};
+
+function selectedPrimaryObjective() {
+  return document.getElementById('primaryObjective')?.value || 'qualsevol';
+}
+
+function inferObjectives(exercise, type) {
+  const text = `${exercise.name} ${exercise.description} ${exercise.coaching || ''}`.toLowerCase();
+  const objectives = new Set(typeObjectives[type] || []);
+  const addIf = (objective, words) => {
+    if (words.some(word => text.includes(word))) objectives.add(objective);
+  };
+  addIf('calentament', ['activació', 'mobilitat', 'escalf', 'entrada progressiva']);
+  addIf('velocitat', ['velocitat', 'sprint', 'acceler', 'ràpid', 'contraatac', 'transició']);
+  addIf('coordinacio', ['coordinació', 'portes', 'escala', 'peus', 'canvi de mà']);
+  addIf('forca-inferior', ['salt', 'esquat', 'tren inferior', 'caiguda', 'rebot', 'lliscament']);
+  addIf('forca-superior', ['flexions', 'gomes', 'tracció', 'contacte', 'core']);
+  addIf('resistencia-aerobica', ['fartlek', 'continu', 'recuperació activa']);
+  addIf('resistencia-anaerobica', ['relleus', 'sprints', '30 segons', 'alta intensitat']);
+  addIf('flexibilitat', ['flexibilitat', 'estiraments', 'tornada a la calma', 'recuperació']);
+  addIf('circuits', ['circuit', 'postes', 'estacions']);
+  addIf('concentracio', ['senyal', 'decisió', 'lectura', 'memòria', 'recordar']);
+  addIf('competitivitat', ['puntua', 'competició', 'guanya', 'rival', 'oposició']);
+  addIf('agressivitat', ['contacte', 'agressivitat', 'fort', 'atacar espai']);
+  addIf('comunicacio', ['comunicació', 'demanar', 'parlar', 'cridar']);
+  addIf('memoria', ['memòria', 'patró', 'sistema', 'consigna', 'recordar']);
+  addIf('cohesio', ['equip', 'grupal', 'parelles', 'trios', 'ajuda']);
+  addIf('creativitat', ['lliure', 'creativitat', 'avantatge', 'decidir', 'variable']);
+  addIf('ludic', ['joc', 'lúdic', 'recreatiu', 'gates', 'portes']);
+  addIf('percepcio', ['percepció', 'llegir', 'lectura', 'senyal', 'color']);
+  addIf('bot-proteccio', ['bot de protecció', 'protegir pilota']);
+  addIf('bot-velocitat', ['bot de velocitat', 'bot central', 'pista sencera']);
+  addIf('bot-canvi-ma', ['canvi de mà', 'mà feble']);
+  addIf('bot-canvi-ritme', ['canvi de ritme', 'ritme']);
+  addIf('pase-dos-mans', ['passada de pit', 'dues mans']);
+  addIf('pase-una-ma', ['una mà', 'beisbol', 'llarga']);
+  addIf('recepcio-alta', ['recepció alta', 'alta']);
+  addIf('recepcio-baixa', ['recepció baixa', 'baixa']);
+  addIf('tir-suspensio', ['tir exterior', 'suspensió', 'llançament']);
+  addIf('tir-bandeja', ['entrada', 'safata', 'finalització']);
+  addIf('tir-ganxo', ['ganxo']);
+  addIf('fintes-tir', ['finta de tir']);
+  addIf('fintes-penetracio', ['finta', 'penetració']);
+  addIf('fintes-pase', ['finta de passada']);
+  addIf('defensa-exterior', ['close-out', 'exterior', 'baló exterior', '1x1']);
+  addIf('defensa-interior', ['interior', 'poste', 'post']);
+  addIf('posicio-defensiva', ['posició defensiva', 'desplaçament defensiu', 'lliscament']);
+  addIf('rebote-ofensiu', ['rebot ofensiu', 'segon salt', 'palmeig']);
+  addIf('rebote-defensiu', ['rebot defensiu', 'bloqueig de rebot']);
+  addIf('contra-primari', ['contraatac', '3 carrils']);
+  addIf('contra-secundari', ['secundari', 'arribada tardana']);
+  addIf('transicio', ['transició', 'retorn', 'canvi immediat']);
+  addIf('balance-defensiu', ['balanç', 'retorn defensiu']);
+  addIf('passar-tallar', ['passar i tallar', 'tall']);
+  addIf('passar-bloquejar', ['passar i bloquejar']);
+  addIf('bloqueig-directe', ['bloqueig directe', 'pick', 'pick and roll']);
+  addIf('bloqueig-indirecte', ['bloqueig indirecte', 'indirecte']);
+  addIf('servei-fons', ['fons', 'servei de fons', 'saque de fondo']);
+  addIf('servei-banda', ['banda', 'servei de banda', 'saque lateral']);
+  addIf('atac-14', ['1-4']);
+  addIf('atac-32', ['3-2']);
+  addIf('atac-caixa-u', ['caixa i un', 'caja y uno']);
+  return [...objectives];
+}
+
+function objectiveScore(exercise, type, objective) {
+  if (!objective || objective === 'qualsevol') return 1;
+  const objectives = inferObjectives(exercise, type);
+  if (objectives.includes(objective)) return 4;
+  const label = (objectiveLabels[objective] || objective).toLowerCase();
+  const text = `${exercise.name} ${exercise.description} ${exercise.coaching || ''}`.toLowerCase();
+  return label.split(/[:/ ]+/).some(part => part.length > 4 && text.includes(part)) ? 3 : 0;
+}
+
+function objectiveMatches(exercise, type, objective) {
+  return objectiveScore(exercise, type, objective) > 0;
+}
+
 function exerciseCategories(exercise, type) {
   const explicit = exercise.category ? [exercise.category] : [];
   return [...new Set([...explicit, ...(typeCategories[type] || [])])];
@@ -904,11 +1047,13 @@ function durationPatternFor(count) {
   });
 }
 
-function pickCore(types, count, categories) {
+function pickCore(types, count, categories, objective) {
   const durationPattern = durationPatternFor(count);
   const pools = Object.fromEntries(types.map(type => {
-    const filtered = libraries[type].filter(ex => categoryMatches(ex, type, categories));
-    return [type, shuffle(filtered.length ? filtered : libraries[type])];
+    const categoryFiltered = libraries[type].filter(ex => categoryMatches(ex, type, categories));
+    const objectiveFiltered = categoryFiltered.filter(ex => objectiveMatches(ex, type, objective));
+    const basePool = objectiveFiltered.length ? objectiveFiltered : categoryFiltered.length ? categoryFiltered : libraries[type];
+    return [type, shuffle(basePool).sort((a, b) => objectiveScore(b, type, objective) - objectiveScore(a, type, objective))];
   }));
   const usedNames = new Set();
   const core = [];
@@ -920,13 +1065,13 @@ function pickCore(types, count, categories) {
     let exercise = pools[type].find(ex => !usedNames.has(ex.name));
 
     if (!exercise) {
-      const fallbackType = shuffle(Object.keys(libraries).filter(k => !['warmup', 'coolDown'].includes(k))).find(t => libraries[t].some(ex => !usedNames.has(ex.name) && categoryMatches(ex, t, categories))) || shuffle(Object.keys(libraries).filter(k => !['warmup', 'coolDown'].includes(k))).find(t => libraries[t].some(ex => !usedNames.has(ex.name)));
+      const fallbackType = shuffle(Object.keys(libraries).filter(k => !['warmup', 'coolDown'].includes(k))).find(t => libraries[t].some(ex => !usedNames.has(ex.name) && categoryMatches(ex, t, categories) && objectiveMatches(ex, t, objective))) || shuffle(Object.keys(libraries).filter(k => !['warmup', 'coolDown'].includes(k))).find(t => libraries[t].some(ex => !usedNames.has(ex.name) && categoryMatches(ex, t, categories))) || shuffle(Object.keys(libraries).filter(k => !['warmup', 'coolDown'].includes(k))).find(t => libraries[t].some(ex => !usedNames.has(ex.name)));
       if (!fallbackType) continue;
       exercise = shuffle(libraries[fallbackType]).find(ex => !usedNames.has(ex.name));
     }
 
     usedNames.add(exercise.name);
-    core.push({ ...exercise, type, minutes: durationPattern[slot] });
+    core.push({ ...exercise, type, objectives: inferObjectives(exercise, type), minutes: durationPattern[slot] });
   }
 
   return core;
@@ -938,9 +1083,10 @@ function buildSession() {
   const types = selectedTypes().length ? selectedTypes() : ['defensa', 'velocitat'];
   const categories = selectedCategories();
   const count = Number(document.getElementById('exerciseCount').value || 6);
+  const objective = selectedPrimaryObjective();
   const warmup = { ...shuffle(libraries.warmup)[0], age, level, minutes: 10 };
   const cooldown = { ...shuffle(libraries.coolDown)[0], age, level, minutes: 10 };
-  const core = pickCore(types, count, categories).map(item => ({ ...item, age, level }));
+  const core = pickCore(types, count, categories, objective).map(item => ({ ...item, age, level }));
   return [warmup, ...core, cooldown].map((item, i) => ({ ...item, order: i + 1 }));
 }
 
@@ -953,12 +1099,14 @@ function render() {
   const checked = [...document.querySelectorAll('input[name="exerciseType"]:checked')];
   const types = checked.map(i => i.parentElement.textContent.trim());
   const categories = selectedCategories().map(cat => categoryLabels[cat] || cat);
+  const objective = selectedPrimaryObjective();
   const total = session.reduce((sum, item) => sum + item.minutes, 0);
   document.getElementById('sessionTitle').textContent = `Sessió de ${total} min · ${levelLabel}`;
   document.getElementById('summary').innerHTML = `
     <div><span>Edat</span><strong>${ageLabel}</strong></div>
     <div><span>Nivell</span><strong>${levelLabel}</strong></div>
-    <div><span>Objectius</span><strong>${types.length ? types.join(', ') : 'Defensa, velocitat'}</strong></div>
+    <div><span>Tipus</span><strong>${types.length ? types.join(', ') : 'Defensa, velocitat'}</strong></div>
+    <div><span>Objectiu específic</span><strong>${objectiveLabels[objective] || objective}</strong></div>
     <div><span>Exercicis</span><strong>${document.getElementById('exerciseCount').value}</strong></div>
     <div><span>Categories</span><strong>${categories.join(', ')}</strong></div>
     <div><span>Durada</span><strong>${total} min</strong></div>
@@ -974,6 +1122,8 @@ function render() {
     node.querySelector('.description').textContent = item.description;
     node.querySelector('.material').innerHTML = `<strong>Material:</strong> ${item.material}`;
     node.querySelector('.coaching').innerHTML = `<strong>Adaptació:</strong> ${adjustments[item.age]} ${levelNotes[item.level]}`;
+    const itemObjectives = (item.objectives || inferObjectives(item, item.type)).slice(0, 4).map(obj => objectiveLabels[obj] || obj).join(', ');
+    node.querySelector('.objectives').innerHTML = itemObjectives ? `<strong>Objectius específics:</strong> ${itemObjectives}` : '';
     node.querySelector('.court-wrap').innerHTML = courtSvg(item.diagram);
     timeline.appendChild(node);
   });

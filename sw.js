@@ -1,4 +1,4 @@
-const CACHE = 'basquet-pwa-v6';
+const CACHE = 'basquet-pwa-v7';
 const ASSETS = ['./', './index.html', './styles.css', './app.js', './manifest.webmanifest', './icons/icon-192.svg', './icons/icon-512.svg'];
 
 self.addEventListener('install', event => {

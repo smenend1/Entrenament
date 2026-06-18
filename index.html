@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Planificador d'entrenaments de bàsquet</title>
-  <meta name="theme-color" content="#b45309" />
+  <meta name="theme-color" content="#f97316" />
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -53,6 +53,73 @@
           </select>
         </label>
 
+
+        <label>
+          Objectiu específic principal
+          <select id="primaryObjective" required>
+            <option value="qualsevol" selected>Qualsevol objectiu compatible</option>
+            <optgroup label="Físics i coordinatius">
+              <option value="calentament">Calentament</option>
+              <option value="acondicionament">Acondicionament general</option>
+              <option value="velocitat">Velocitat</option>
+              <option value="coordinacio">Coordinació</option>
+              <option value="forca-inferior">Força tren inferior</option>
+              <option value="forca-superior">Força tren superior</option>
+              <option value="resistencia-aerobica">Resistència aeròbica</option>
+              <option value="resistencia-anaerobica">Resistència anaeròbica</option>
+              <option value="flexibilitat">Flexibilitat / recuperació</option>
+              <option value="circuits">Circuits</option>
+            </optgroup>
+            <optgroup label="Psicològics i aprenentatge">
+              <option value="concentracio">Concentració</option>
+              <option value="competitivitat">Competitivitat</option>
+              <option value="agressivitat">Agressivitat esportiva</option>
+              <option value="comunicacio">Comunicació / expressió</option>
+              <option value="memoria">Assimilació / memorització</option>
+              <option value="cohesio">Cohesió grupal</option>
+              <option value="creativitat">Creativitat</option>
+              <option value="ludic">Lúdic / recreatiu</option>
+              <option value="percepcio">Percepció</option>
+            </optgroup>
+            <optgroup label="Tècnics">
+              <option value="bot-proteccio">Bot: protecció</option>
+              <option value="bot-velocitat">Bot: velocitat</option>
+              <option value="bot-canvi-ma">Bot: canvi de mà</option>
+              <option value="bot-canvi-ritme">Bot: canvi de ritme</option>
+              <option value="pase-dos-mans">Passada dues mans</option>
+              <option value="pase-una-ma">Passada una mà</option>
+              <option value="recepcio-alta">Recepció alta</option>
+              <option value="recepcio-baixa">Recepció baixa</option>
+              <option value="tir-suspensio">Tir en suspensió</option>
+              <option value="tir-bandeja">Entrada / safata</option>
+              <option value="tir-ganxo">Tir de ganxo</option>
+              <option value="fintes-tir">Fintes de tir</option>
+              <option value="fintes-penetracio">Fintes de penetració</option>
+              <option value="fintes-pase">Fintes de passada</option>
+            </optgroup>
+            <optgroup label="Tàctics i estratègics">
+              <option value="defensa-exterior">Defensa pilota exterior</option>
+              <option value="defensa-interior">Defensa pilota interior</option>
+              <option value="posicio-defensiva">Posició bàsica defensiva</option>
+              <option value="rebote-ofensiu">Rebot ofensiu</option>
+              <option value="rebote-defensiu">Rebot defensiu</option>
+              <option value="contra-primari">Contraatac primari</option>
+              <option value="contra-secundari">Contraatac secundari</option>
+              <option value="transicio">Transició</option>
+              <option value="balance-defensiu">Balanç defensiu</option>
+              <option value="passar-tallar">Passar i tallar</option>
+              <option value="passar-bloquejar">Passar i bloquejar</option>
+              <option value="bloqueig-directe">Bloqueig directe</option>
+              <option value="bloqueig-indirecte">Bloqueig indirecte</option>
+              <option value="servei-fons">Servei de fons</option>
+              <option value="servei-banda">Servei de banda</option>
+              <option value="atac-14">Atac 1-4</option>
+              <option value="atac-32">Atac 3-2</option>
+              <option value="atac-caixa-u">Atac caixa i un</option>
+            </optgroup>
+          </select>
+        </label>
+
         <fieldset>
           <legend>Tipus d'exercicis</legend>
           <label class="check"><input type="checkbox" name="exerciseType" value="forca" checked /> Força</label>
@@ -63,17 +130,6 @@
           <label class="check"><input type="checkbox" name="exerciseType" value="passades" /> Passades i coordinació</label>
           <label class="check"><input type="checkbox" name="exerciseType" value="bot" /> Bot i 1x1</label>
           <label class="check"><input type="checkbox" name="exerciseType" value="situacions" /> Situacions variables</label>
-        </fieldset>
-
-        <fieldset>
-          <legend>Categories pedagògiques</legend>
-          <label class="check"><input type="checkbox" name="exerciseCategory" value="fisics" checked /> Físics</label>
-          <label class="check"><input type="checkbox" name="exerciseCategory" value="tecnics" checked /> Tècnics</label>
-          <label class="check"><input type="checkbox" name="exerciseCategory" value="tactics" checked /> Tàctics</label>
-          <label class="check"><input type="checkbox" name="exerciseCategory" value="globalitzats" checked /> Globalitzats</label>
-          <label class="check"><input type="checkbox" name="exerciseCategory" value="estrategics" /> Estratègics</label>
-          <label class="check"><input type="checkbox" name="exerciseCategory" value="psicologics" /> Psicològics</label>
-          <label class="check"><input type="checkbox" name="exerciseCategory" value="especifics" /> Específics</label>
         </fieldset>
 
         <button type="submit">Genera un entrenament nou</button>
@@ -103,6 +159,7 @@
           <p class="description"></p>
           <p class="material"></p>
           <p class="coaching"></p>
+          <p class="objectives"></p>
         </div>
       </div>
       <div class="court-wrap"></div>
